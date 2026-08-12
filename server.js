@@ -7,4 +7,20 @@ const app = express();
 // GET /contato→ 200, corpo contém "Contato"
 // Rotas não mapeadas → 404 automático do Express
 
+app.get('/', (req, res) => {
+    res.send('Home');
+})
+
+app.get('/sobre', (req, res) => {
+    res.send('Sobre');
+})
+
+app.get('/contato', (req, res) => {
+    res.send('Contato');
+})
+
+app.use((req, res) => {
+    res.status(404).send('Rota não encontrada.');
+})
+
 app.listen(3000, () => console.log('Servidor rodando em http://localhost:3000'));
